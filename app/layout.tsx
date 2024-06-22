@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   keywords: [
     "cek oshi",
     "oshi",
-    "cek khodam oshi",
+    "oshi cek",
     "cek oshi online",
     "website cek oshi",
     "cek oshi nama",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Cek Oshi Online",
     description: "Cek oshi yang ada pada tubuh seseorang melalui nama.",
     url: `${process.env.HOST_APP_URL}`,
-    siteName: "Cek Khodam Online",
+    siteName: "Cek Oshi Online",
     images: [
       {
         url: `${process.env.SITE_URL}/og-image.png`,
