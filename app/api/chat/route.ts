@@ -23,14 +23,14 @@ export async function POST(req: NextRequest) {
     ];
 
     // Simulate delay for animation effect
-    await new Promise(resolve => setTimeout(resolve, 1000)); // 1 second delay
+    await new Promise(resolve => setTimeout(resolve, 2000)); // 2 second delay
 
     // Randomly select a khodam
     const selectedKhodam = khodams[Math.floor(Math.random() * khodams.length)];
 
     // Respond with the selected khodam
     return NextResponse.json(
-      { messages: `Khodam dari ${prompt} adalah ${selectedKhodam}.` },
+      { messages: `Oshi dari ${prompt} adalah ${selectedKhodam}.` },
       { status: 200 }
     );
   } catch (error) {
