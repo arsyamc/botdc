@@ -7,7 +7,7 @@ export default function Heading() {
       <h1 className={title()}>Check Khodam&nbsp;</h1>
       <h1 className={title({ color: "violet" })}>Online</h1>
       <p className={subtitle({ class: "mt-2 text-base" })}>
-        Cek khodam yang ada pada tubuh seseorang melalui nama
+        Cek Oshi yang ada pada tubuh seseorang melalui nama
       </p>
     </div>
   );
