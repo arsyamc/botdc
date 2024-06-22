@@ -61,7 +61,7 @@ export default function CheckKhodam() {
           size={24}
           className="animate-pulse"
         />
-        <span>Memeriksa khodam...</span>
+        <span>Memeriksa Oshi...</span>
       </div>
     );
 
