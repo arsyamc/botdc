@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     "check oshi",
     "oshi check",
     "oshi check online",
-    "oshi khodam online",
-    "oshi khodam nama",
+    "oshi oshi online",
+    "oshi oshi nama",
   ],
   authors: [
     {
