@@ -107,7 +107,7 @@ export default function CheckKhodam() {
                 }
                 className="w-full font-semibold group"
               >
-                Check Khodam
+                Check Oshi
               </Button>
             </form>
           )}
