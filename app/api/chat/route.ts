@@ -22,22 +22,38 @@ export async function POST(req: NextRequest) {
       "moreen", "levi", "nayla", "nachia", "oline", "regie", "ribka", "nala", "kimmy"
     ];
 
-    const weightedKhodams = khodams.flatMap(name => {
-      if (name === "trisha" && (prompt.includes("nanda") || prompt.includes("arsya"))) {
-        return Array(10).fill(name); // Increase the probability by adding more "trisha"
+    // Determine weights based on the prompt
+    let weights = khodams.map(name => (name === "erine" ? 0.1 : 1)); // Very low weight for "erine"
+    if (prompt.includes("nanda") || prompt.includes("arsya")) {
+      const trishaIndex = khodams.indexOf("trisha");
+      if (trishaIndex !== -1) {
+        weights[trishaIndex] = 10; // Increase the weight of "trisha"
       }
-      return name;
-    });
+    }
+
+    // Function to select a weighted random item
+    function weightedRandom(items, weights) {
+      const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
+      const randomWeight = Math.random() * totalWeight;
+      let weightSum = 0;
+
+      for (let i = 0; i < items.length; i++) {
+        weightSum += weights[i];
+        if (randomWeight <= weightSum) {
+          return items[i];
+        }
+      }
+    }
 
     // Simulate delay for animation effect
-    await new Promise(resolve => setTimeout(resolve, 2000)); // 2 second delay
+    await new Promise(resolve => setTimeout(resolve, 1000)); // 1 second delay
 
-    // Randomly select a khodam from the weighted list
-    const selectedKhodam = weightedKhodams[Math.floor(Math.random() * weightedKhodams.length)];
+    // Randomly select a khodam with weighted probability
+    const selectedKhodam = weightedRandom(khodams, weights);
 
     // Respond with the selected khodam
     return NextResponse.json(
-      { messages: `Oshi dari ${prompt} adalah ${selectedKhodam}.` },
+      { messages: `Khodam dari ${prompt} adalah ${selectedKhodam}.` },
       { status: 200 }
     );
   } catch (error) {
