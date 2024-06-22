@@ -22,8 +22,8 @@ export async function POST(req: NextRequest) {
       "moreen", "levi", "nayla", "nachia", "oline", "regie", "ribka", "nala", "kimmy"
     ];
 
-    // Determine weights based on the prompt
-    let weights = khodams.map(name => (name === "erine" ? 0.1 : 1)); // Very low weight for "erine"
+    // Define weights with explicit type
+    let weights: number[] = khodams.map(name => (name === "erine" ? 0.1 : 1)); // Very low weight for "erine"
     if (prompt.includes("nanda") || prompt.includes("arsya")) {
       const trishaIndex = khodams.indexOf("trisha");
       if (trishaIndex !== -1) {
@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Function to select a weighted random item
-    function weightedRandom(items, weights) {
+    function weightedRandom(items: string[], weights: number[]): string {
       const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
       const randomWeight = Math.random() * totalWeight;
       let weightSum = 0;
@@ -43,6 +43,7 @@ export async function POST(req: NextRequest) {
           return items[i];
         }
       }
+      return items[items.length - 1]; // Default return in case of rounding issues
     }
 
     // Simulate delay for animation effect
