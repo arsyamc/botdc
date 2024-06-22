@@ -10,37 +10,37 @@ import { fontSans } from "@/config/fonts";
 import { ThemeSwitch } from "@/components/theme-switch";
 
 export const metadata: Metadata = {
-  title: "Cek Khodam Online",
-  description: "Cek khodam yang ada pada tubuh seseorang melalui nama.",
+  title: "Cek Oshi Online",
+  description: "Cek oshi yang ada pada tubuh seseorang melalui nama.",
   keywords: [
-    "cek khodam",
-    "khodam",
-    "cek khodam ai",
-    "cek khodam online",
-    "website cek khodam",
-    "cek khodam nama",
-    "cek khodam tubuh",
-    "cek khodam orang",
-    "cek khodam orang lain",
-    "cek khodam seseorang",
-    "cek khodam orang lain online",
-    "cek khodam orang lain gratis",
-    "check khodam",
-    "khodam check",
-    "khodam check online",
-    "check khodam online",
-    "check khodam nama",
+    "cek oshi",
+    "oshi",
+    "cek khodam oshi",
+    "cek oshi online",
+    "website cek oshi",
+    "cek oshi nama",
+    "cek oshi tubuh",
+    "cek oshi orang",
+    "cek oshi orang lain",
+    "cek oshi seseorang",
+    "cek oshi orang lain online",
+    "cek oshi orang lain gratis",
+    "check oshi",
+    "oshi check",
+    "oshi check online",
+    "oshi khodam online",
+    "oshi khodam nama",
   ],
   authors: [
     {
-      name: "Coding with Afrizal",
-      url: "https://aafrzl.my.id",
+      name: "Coding with Afrizal Modify by @vrsyvubyv",
+      url: "cekoshi.vercel.app",
     },
   ],
-  creator: "Coding with Afrizal",
+  creator: "Coding with Afrizal Modify by @vrsyvubyv",
   openGraph: {
-    title: "Cek Khodam Online",
-    description: "Cek khodam yang ada pada tubuh seseorang melalui nama.",
+    title: "Cek Oshi Online",
+    description: "Cek oshi yang ada pada tubuh seseorang melalui nama.",
     url: `${process.env.HOST_APP_URL}`,
     siteName: "Cek Khodam Online",
     images: [
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         url: `${process.env.SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Cek Khodam Online",
+        alt: "Cek Oshi Online",
       },
     ],
     locale: "id_ID",
@@ -56,14 +56,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "Cek Khodam Online",
-    title: "Cek Khodam Online",
-    description: "Cek khodam yang ada pada tubuh seseorang melalui nama.",
-    creator: "@aafrzl_",
+    site: "Cek Oshi Online",
+    title: "Cek oshi Online",
+    description: "Cek oshi yang ada pada tubuh seseorang melalui nama.",
+    creator: "@aafrzl_ & @vrsyvubyv",
     images: [
       {
         url: `${process.env.SITE_URL}/og-image.png`,
-        alt: "Cek Khodam Online",
+        alt: "Cek Oshi Online",
       },
     ],
   },
@@ -107,7 +107,7 @@ export default function RootLayout({
                 title="GitHub"
               >
                 <span className="text-default-600">Developed by</span>
-                <p className="text-primary">Coding with Afrizal</p>
+                <p className="text-primary">Coding with Afrizal Modify by @vrsyvubyv</p>
               </Link>
             </footer>
           </div>
