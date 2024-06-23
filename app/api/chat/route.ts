@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
     // Define weights with explicit type
     let weights: number[] = khodams.map(name => (name === "erine" ? 0.1 : 1)); // Very low weight for "erine"
     if (prompt.includes("nanda") || prompt.includes("arsya")) {
-      const trishaIndex = khodams.indexOf("trisha");
+      const trishaIndex = khodams.indexOf("erine");
       if (trishaIndex !== -1) {
         weights[trishaIndex] = 10; // Increase the weight of "trisha"
       }
