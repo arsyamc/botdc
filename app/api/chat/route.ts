@@ -13,44 +13,34 @@ export async function POST(req: NextRequest) {
     }
 
     // List of khodams
-    const khodams = ["freya", "ashel", "amanda", "gita", "lulu", "jessi", "shani", "raisha",
-      "muthe", "chika", "christy", "lia", "cathy", "cynthia", "daisy", "indira",
+    const khodams = [
+      "freya", "amanda", "gita", "lulu", "jessi", "shani", "raisha",
+      "muthe", "christy", "lia", "cathy", "cynthia", "daisy", "indira",
       "eli", "michie", "gracia", "ella", "adel", "feni", "marsha", "zee", "lyn",
       "indah", "elin", "chelsea", "danella", "gendis", "gracie", "greesel", "flora",
-      "olla", "kathrina", "oniel", "fiony", "callie", "alya", "anindya", "jeane",
+      "olla", "kathrina", "oniel", "fiony", "callie", "alya", "anindya",
       "aralie", "delynn", "shasa", "lana", "erine", "fritzy", "lily", "trisha",
-      "moreen", "levi", "nayla", "nachia", "oline", "regie", "ribka", "nala", "kimmy"
+      "moreen", "levi", "nayla", "nachia", "oline", "regie", "ribka", "nala", "kimmy",
+      "ci jabieb"
     ];
 
-    // Define weights with explicit type
-    let weights: number[] = khodams.map(name => (name === "erine" ? 0.1 : 1)); // Very low weight for "erine"
-    if (prompt.includes("nanda") || prompt.includes("arsya")) {
-      const trishaIndex = khodams.indexOf("erine");
-      if (trishaIndex !== -1) {
-        weights[trishaIndex] = 10; // Increase the weight of "trisha"
+    // Adjusted list to favor "trisha" for "nanda" and "arsya"
+    // Also increase the occurrence of "ci jabieb"
+    const weightedKhodams = khodams.flatMap(name => {
+      if (name === "trisha" && (prompt.includes("nanda") || prompt.includes("arsya"))) {
+        return Array(10).fill(name); // Increase the probability by adding more "trisha"
       }
-    }
-
-    // Function to select a weighted random item
-    function weightedRandom(items: string[], weights: number[]): string {
-      const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
-      const randomWeight = Math.random() * totalWeight;
-      let weightSum = 0;
-
-      for (let i = 0; i < items.length; i++) {
-        weightSum += weights[i];
-        if (randomWeight <= weightSum) {
-          return items[i];
-        }
+      if (name === "ci jabieb") {
+        return Array(5).fill(name); // Increase the probability by adding more "ci jabieb"
       }
-      return items[items.length - 1]; // Default return in case of rounding issues
-    }
+      return name;
+    });
 
     // Simulate delay for animation effect
     await new Promise(resolve => setTimeout(resolve, 1000)); // 1 second delay
 
-    // Randomly select a khodam with weighted probability
-    const selectedKhodam = weightedRandom(khodams, weights);
+    // Randomly select a khodam from the weighted list
+    const selectedKhodam = weightedKhodams[Math.floor(Math.random() * weightedKhodams.length)];
 
     // Respond with the selected khodam
     return NextResponse.json(
