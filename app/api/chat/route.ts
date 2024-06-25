@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
     });
 
     // Simulate delay for animation effect
-    await new Promise(resolve => setTimeout(resolve, 1000)); // 1 second delay
+    await new Promise(resolve => setTimeout(resolve, 2000)); // 2 second delay
 
     // Randomly select a khodam from the weighted list
     const selectedKhodam = weightedKhodams[Math.floor(Math.random() * weightedKhodams.length)];
