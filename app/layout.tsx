@@ -11,7 +11,7 @@ import { ThemeSwitch } from "@/components/theme-switch";
 
 export const metadata: Metadata = {
   title: "Cek Oshi Online",
-  description: "Cek oshi seseorang melalui nama seseorang.",
+  description: "Cek oshi seseorang melalui nama.",
   keywords: [
     "cek oshi",
     "oshi",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   creator: "Coding with Afrizal Modify by @vrsyvubyv",
   openGraph: {
     title: "Cek Oshi Online",
-    description: "Cek oshi seseorang melalui nama seseorang.",
+    description: "Cek oshi seseorang melalui nama.",
     url: `${process.env.HOST_APP_URL}`,
     siteName: "Cek Oshi Online",
     images: [
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "Cek Oshi Online",
     title: "Cek oshi Online",
-    description: "Cek oshi seseorang melalui nama seseorang.",
+    description: "Cek oshi seseorang melalui nama.",
     creator: "@aafrzl_ & @vrsyvubyv",
     images: [
       {
