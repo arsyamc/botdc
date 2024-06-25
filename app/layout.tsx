@@ -103,7 +103,7 @@ export default function RootLayout({
               <Link
                 isExternal
                 className="flex items-center gap-1 text-current"
-                href={siteConfig.links.github}
+                href={siteConfig.links.tiktok}
                 title="GitHub"
               >
                 <span className="text-default-600">Developed by</span>
