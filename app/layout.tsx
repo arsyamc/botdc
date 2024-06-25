@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Coding with Afrizal Modify by @vrsyvubyv",
-      url: "cekoshi.vercel.app",
+      url: "https://tiktok.com/@_arsya_",
     },
   ],
   creator: "Coding with Afrizal Modify by @vrsyvubyv",
