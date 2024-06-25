@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
 
     // Respond with the selected khodam
     return NextResponse.json(
-      { messages: `Khodam dari ${prompt} adalah ${selectedKhodam}.` },
+      { messages: `Oshi dari ${prompt} adalah ${selectedKhodam}.` },
       { status: 200 }
     );
   } catch (error) {
