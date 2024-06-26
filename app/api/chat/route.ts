@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
   try {
     const { messages } = await req.json();
-    const prompt = messages[messages.length - 1]?.content?.toLowerCase();
+    const prompt = messages[messages.length - 1]?.content;
 
     if (!prompt) {
       return NextResponse.json(
@@ -24,23 +24,11 @@ export async function POST(req: NextRequest) {
       "ci jabieb"
     ];
 
-    // Adjusted list to favor "trisha" for "nanda" and "arsya"
-    // Also increase the occurrence of "ci jabieb"
-    const weightedKhodams = khodams.flatMap(name => {
-      if (name === "trisha" && (prompt.includes("nanda") || prompt.includes("arsya"))) {
-        return Array(10).fill(name); // Increase the probability by adding more "trisha"
-      }
-      if (name === "ci jabieb") {
-        return Array(5).fill(name); // Increase the probability by adding more "ci jabieb"
-      }
-      return name;
-    });
-
     // Simulate delay for animation effect
     await new Promise(resolve => setTimeout(resolve, 2000)); // 2 second delay
 
-    // Randomly select a khodam from the weighted list
-    const selectedKhodam = weightedKhodams[Math.floor(Math.random() * weightedKhodams.length)];
+    // Randomly select a khodam from the list
+    const selectedKhodam = khodams[Math.floor(Math.random() * khodams.length)];
 
     // Respond with the selected khodam
     return NextResponse.json(
