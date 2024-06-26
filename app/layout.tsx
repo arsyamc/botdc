@@ -10,9 +10,16 @@ import { fontSans } from "@/config/fonts";
 import { ThemeSwitch } from "@/components/theme-switch";
 
 export const metadata: Metadata = {
-  title: "Cek Oshi Online",
+  title: "Cek Oshi Online Jkt48",
   description: "Cek oshi seseorang melalui nama.",
   keywords: [
+    "cek oshi jkt48",
+    "cek oshi member jkt48",
+    "check oshi jkt48",
+    "check oshi member jkt48",
+    "oshi jkt48",
+    "jkt48 cek oshi",
+    "jkt48 check oshi",
     "cek oshi",
     "oshi",
     "oshi cek",
