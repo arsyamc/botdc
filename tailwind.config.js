@@ -15,11 +15,22 @@ module.exports = {
       },
       animation: {
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        "gradient-text": "gradient-text 3s ease infinite",
       },
       keyframes: {
         "border-beam": {
           "100%": {
             "offset-distance": "100%",
+          },
+        },
+        "gradient-text": {
+          "0%, 100%": {
+            backgroundSize: '200% 200%',
+            backgroundPosition: 'left center',
+          },
+          "50%": {
+            backgroundSize: '200% 200%',
+            backgroundPosition: 'right center',
           },
         },
       },
