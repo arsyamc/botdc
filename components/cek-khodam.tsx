@@ -14,7 +14,7 @@ export default function CheckKhodam() {
   const {
     messages,
     input,
-    handleSubmit: originalHandleSubmit,
+    handleSubmit,
     setMessages,
     handleInputChange,
     isLoading,
@@ -25,19 +25,13 @@ export default function CheckKhodam() {
 
   const handleReset = () => {
     setMessages([]);
-    router.refresh();
+    setTimeout(() => {
+      window.location.reload();
+    }, 500); // Refresh the page after 0.5 seconds
   };
 
   const handleRefresh = () => {
     window.location.reload();
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    await originalHandleSubmit(e);
-    setTimeout(() => {
-      window.location.reload(); // Refresh the page after 2 seconds
-    }, 2000);
   };
 
   if (error)
