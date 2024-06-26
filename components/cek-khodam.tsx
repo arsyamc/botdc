@@ -1,7 +1,6 @@
 "use client";
 import { useChat } from "@ai-sdk/react";
 import { Button } from "@nextui-org/button";
-
 import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { Input } from "@nextui-org/input";
 import { RefreshCcw, Sparkles } from "lucide-react";
@@ -15,7 +14,7 @@ export default function CheckKhodam() {
   const {
     messages,
     input,
-    handleSubmit,
+    handleSubmit: originalHandleSubmit,
     setMessages,
     handleInputChange,
     isLoading,
@@ -31,6 +30,14 @@ export default function CheckKhodam() {
 
   const handleRefresh = () => {
     window.location.reload();
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await originalHandleSubmit(e);
+    setTimeout(() => {
+      window.location.reload(); // Refresh the page after 2 seconds
+    }, 2000);
   };
 
   if (error)
