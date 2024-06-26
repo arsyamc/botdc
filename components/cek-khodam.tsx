@@ -1,16 +1,14 @@
 "use client";
 import { useChat } from "@ai-sdk/react";
+import { useState } from "react";
 import { Button } from "@nextui-org/button";
 import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { Input } from "@nextui-org/input";
 import { RefreshCcw, Sparkles } from "lucide-react";
-import { useRouter } from "next/navigation";
 import BlurIn from "./ui/blur-in";
 import { BorderBeam } from "./ui/border-beam";
 
 export default function CheckKhodam() {
-  const router = useRouter();
-
   const {
     messages,
     input,
@@ -23,15 +21,11 @@ export default function CheckKhodam() {
     streamMode: "text",
   });
 
+  const [refreshKey, setRefreshKey] = useState(0);
+
   const handleReset = () => {
     setMessages([]);
-    setTimeout(() => {
-      window.location.reload();
-    }, 500); // Refresh the page after 0.5 seconds
-  };
-
-  const handleRefresh = () => {
-    window.location.reload();
+    setRefreshKey(prevKey => prevKey + 1);
   };
 
   if (error)
@@ -48,7 +42,7 @@ export default function CheckKhodam() {
             />
           }
           className="w-full font-semibold group"
-          onClick={handleRefresh}
+          onClick={handleReset}
         >
           Ulangi
         </Button>
@@ -58,10 +52,7 @@ export default function CheckKhodam() {
   if (isLoading)
     return (
       <div className="flex items-center gap-x-2">
-        <Sparkles
-          size={24}
-          className="animate-pulse"
-        />
+        <Sparkles size={24} className="animate-pulse" />
         <span>Memeriksa Oshi...</span>
       </div>
     );
@@ -85,11 +76,9 @@ export default function CheckKhodam() {
         )}
         <CardBody className="grid grid-cols-1 gap-6 p-2">
           {!error && !isLoading && messages.length === 0 && (
-            <form
-              onSubmit={handleSubmit}
-              className="space-y-2"
-            >
+            <form onSubmit={handleSubmit} className="space-y-2">
               <Input
+                key={refreshKey} // Add key to force re-render
                 value={input}
                 onChange={handleInputChange}
                 required
@@ -101,10 +90,7 @@ export default function CheckKhodam() {
                 type="submit"
                 color="secondary"
                 startContent={
-                  <Sparkles
-                    size={18}
-                    className="group-hover:animate-pulse"
-                  />
+                  <Sparkles size={18} className="group-hover:animate-pulse" />
                 }
                 className="w-full font-semibold group"
               >
