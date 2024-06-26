@@ -24,7 +24,9 @@ export async function POST(req: NextRequest) {
       "ci jabieb"
     ];
 
-    let weightedKhodams = khodams.flatMap(name => {
+    // Adjusted list to favor "trisha" for "nanda" and "arsya"
+    // Also increase the occurrence of "ci jabieb"
+    const weightedKhodams = khodams.flatMap(name => {
       if (name === "trisha" && (prompt.includes("nanda") || prompt.includes("arsya"))) {
         return Array(10).fill(name); // Increase the probability by adding more "trisha"
       }
@@ -33,11 +35,6 @@ export async function POST(req: NextRequest) {
       }
       return name;
     });
-
-    // Special case for "farhan"
-    if (prompt.includes("farhan")) {
-      weightedKhodams = ["indah", "greesel", "fritzy"];
-    }
 
     // Simulate delay for animation effect
     await new Promise(resolve => setTimeout(resolve, 2000)); // 2 second delay
